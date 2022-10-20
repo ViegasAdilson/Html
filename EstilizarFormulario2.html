@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Estilizar Formularios 2</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			font-family: "Trebuchet MS", Helveteca, sans-serif;
+			background: #643d87 url(Imagem/fundo.jpg) no-repeat top center;
+		}
+		#container{
+			width: 400px;
+			height: 300px;
+			background-color: rgba(255,255,255,0.3);
+			-webkit-border-radius:10px;
+			-moz-border-radius:10px;
+			border-radius: 10px;
+			margin: 0 auto;
+			margin-top: 120px;
+			text-align: center;
+		}
+		#container img{
+			width: 120px;
+			height: 120px;
+			margin-top: -60px;
+			margin-bottom: 30px;
+
+		}
+
+		input{
+			width: 80%;
+			height: 40px;
+			font-size: 18px;
+			margin-bottom: 10px;
+			background: #fff;
+			padding-left: 40px;
+			border:none;
+			background-repeat: no-repeat;
+			background-position: 10px;
+		}
+
+		input.email{
+			background-image: url(Imagem/icone-usuario.png);
+		}
+		input.senha{
+			background-image: url(Imagem/icone-cadeado.png);
+		}
+		input.submit{
+			color: #fff;
+			background-color: #f79300;
+			border:2px solid #db7d00;
+			padding: 5px 20px;
+			height: 45px;
+			width:90%;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<img src="Imagem/perfil.png">
+		<form>
+			<div>
+				<input class="email" type="text" name="email" id="email" placeholder="Digite o seu e-mail">
+			</div>
+
+			<div>
+				<input class="senha" type="password" name="senha" id="senha" placeholder="Digite a sua senha">
+			</div>
+
+			<div>
+				<input class="submit" type="submit" value="Login" ">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

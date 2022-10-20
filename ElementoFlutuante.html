@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Elemento Flutuante</title>
+		<meta charset="utf-8">
+
+		<style type="text/css">
+			.conteudo{
+				background: blue;
+				border: 1px solid grey;
+				width: 150px;
+				height: 150px;
+				margin: 10px;
+				float: right;
+				
+				
+			}
+			.clear{
+				/*left, right, both*/
+				clear: both;
+			}
+
+			#principal{
+				border: 5px solid red;
+				background: green;
+			}
+
+			/*.conteudo1{
+				background: blue;
+				border: 1px solid grey;
+				width: 150px;
+				height: 150px;
+				float: right;
+			}*/
+		</style>
+	</head>
+	<body>
+		<div id="principal">
+			<div class="conteudo">
+				Conteudo 1
+			</div>
+			<div class="conteudo">
+				Conteudo 2
+			</div>
+			<div class="conteudo">
+				Conteudo 3
+			</div>
+			<div class="clear">
+				aaa
+			</div>
+		</div>
+	</body>
+</html>
