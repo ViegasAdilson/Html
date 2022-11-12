@@ -6,7 +6,15 @@
 	<title>jQuery</title>
 
 	<style>
+		#divExterna {
+			background-color: #ccc;
+			width: 80px;
+			height: 80px;
+		}
 
+		.inputFocado {
+			background-color: orange;
+		}
 	</style>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -19,6 +27,76 @@
 			})
 			$(window).resize(() => {
 				$('#resize').html('Pagina redimencionada').css('background-color', 'red')
+			})
+
+			$('#btn1').mousedown(() => {
+				$('#div2').css('background-color', 'green')
+			})
+			$('#btn1').click(() => {
+				$('#div2').css('background-color', 'yellow')
+			})
+
+			$('#btn2').dblclick(() => {
+				$('#div2').css('background-color', 'orange')
+			})
+			$('#div2').mousemove((e) => {
+				console.log(e.offsetX, e.offsetY)
+				$('#resultadoDiv2').html(' X:' + e.offsetX + ' / Y:' + e.offsetY)
+			})
+			// $('#divExterna').mouseover(() => {
+			// 	$('#resultadoDiv1').html('Entrou')
+			// })
+			$('#divExterna').mouseenter(() => {
+				$('#resultadoDiv1').html('Entrou')
+			})
+			// $('#divExterna').mouseleave(() => {
+			// 	$('#resultadoDiv1').html('Saiu')
+			// })
+			$('#divExterna').mouseout(() => {
+				$('#resultadoDiv1').html('Saiu')
+			})
+			$('#teclado').keydown(() => {
+				$('#resultadoTecla').html('Tecla pressionada')
+			})
+			// $('#teclado').keyup(() => {
+			// 	$('#resultadoTecla').html('Tecla soltada')
+			// })
+
+			// $('#nome').focus(() => {
+			// 	console.log('input nome recebeu focu')
+			// 	$('#nome').addClass('inputFocado')
+			// })
+			// $('#email').focus(() => {
+			// 	console.log('input email recebeu focu')
+			// 	$('#email').addClass('inputFocado')
+			// })
+			// $('#nome').blur(() => {
+			// 	console.log('input nome perdeu focu')
+			// 	$('#nome').removeClass('inputFocado')
+			// })
+			// $('#email').blur(() => {
+			// 	console.log('input email perdeu focu')
+			// 	$('#email').removeClass('inputFocado')
+			// })
+
+			$('#nome, #email').focus((e) => {
+				console.log('input email recebeu focu')
+				// $('#email').addClass('inputFocado')
+				$(e.target).addClass('inputFocado')
+			})
+			$('#nome, #email').blur(() => {
+				console.log('input nome perdeu focu')
+				$('#nome, #email').removeClass('inputFocado')
+			})
+
+			//select
+			$('#opcao').change((e) => {
+				console.log(e.target.value)
+			})
+
+			$('#form').submit((e) => {
+				e.preventDefault()
+				console.log('Formulario enviado')
 			})
 		})
 
@@ -39,34 +117,37 @@
 		<hr />
 
 		<h3>Mouse</h3>
-		<button type="button">Clique aqui</button>
-		<button type="button">Clique aqui 2x</button>
-		<div style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
-		<span>Resultado do evento sobre a div</span>
+		<button id="btn1" type="button">Clique aqui</button>
+		<button id="btn2" type="button">Clique aqui 2x</button>
+		<div id="div2" style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px">
+		</div>
+		<span>Resultado do evento sobre a div</span><span id="resultadoDiv2"></span>
+		<div id="divExterna"></div>
+		<span>Div Externa: </span><span id="resultadoDiv1"></span>
 		<hr />
 
 		<h3>Teclado</h3>
 		<span>Nome:</span>
-		<input type="text" />
-		<span>Resultado do evento sobre o input</span>
+		<input type="text" id="teclado" />
+		<span id="resultadoTecla">Resultado do evento sobre o input</span>
 		<hr />
 
 		<h3>Formulário</h3>
-		<form>
+		<form id="form">
 			<span>Nome:</span>
-			<input type="text" />
+			<input type="text" id="nome" />
 
 			<span>E-mail:</span>
-			<input type="text" />
+			<input type="text" id="email" />
 
 			<span>Motivo do contato:</span>
-			<select>
+			<select id="opcao">
 				<option value="">-- Selecione --</option>
 				<option value="duvida">Dúvida</option>
 				<option value="sugestao">Sugestão</option>
 			</select>
 
-			<button type="button">Enviar</button>
+			<button type="submit">Enviar</button>
 		</form>
 	</div>
 </body>

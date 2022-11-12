@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            // $('input').on('focus', e => {
+            //     $(e.target).removeClass('desfocado')
+            //     $(e.target).addClass('focado')
+            // })
+            // $('input').on('blur', e => {
+            //     $(e.target).removeClass('focado')
+            //     $(e.target).addClass('desfocado')
+            // })
+
+            $('body').on('focus', 'input', e => {
+                $(e.target).removeClass('defocado')
+                $(e.target).addClass('focado')
+            })
+            $('body').on('blur', 'input', e => {
+                $(e.target).removeClass('focado')
+                $(e.target).addClass('desfocado')
+            })
+            $('body').off('blur', 'input')
+
+            $('body').append('<br/><br/> <input type="text" class="desfocado">')
+        })
+    </script>
+    <style>
+        .desfocado {
+            background-color: yellow;
+        }
+
+        .focado {
+            background-color: greenyellow;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="desfocado">
+</body>
+
+</html>
